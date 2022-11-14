@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- imagen -->
+  <ion-img  class ="ion-padding" src="assets/images/login.svg"></ion-img>
+
+  <ion-item class="ion-margin-top inputRedondo" lines="none">
+    <ion-label position="fixed">Correo</ion-label>
+    <ion-input [(ngModel)]="mdl_correo">
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+    </ion-input>
+  </ion-item>
+  
+  <ion-item class="ion-margin-top inputRedondo">
+    <ion-label position="fixed">Nombre</ion-label>
+    <ion-input [(ngModel)]="mdl_nombre">
+      <ion-icon name="person" slot="start"></ion-icon>
+    </ion-input>
+  </ion-item>
+    
+  <ion-item class="ion-margin-top inputRedondo">
+    <ion-label position="fixed">Apellido</ion-label>
+    <ion-input [(ngModel)]="mdl_apellido">
+      <ion-icon name="person" slot="start"></ion-icon>
+    </ion-input>
+  </ion-item>
+    
+  <ion-item class="ion-margin-top inputRedondo">
+    <ion-label position="fixed">Contraseña</ion-label>
+    <ion-input [(ngModel)]="mdl_contrasena">
+      <ion-icon name="key" slot="start"></ion-icon>
+    </ion-input>
+  </ion-item>
+  
+  <ion-button (click) = "almacenar()" expand="block" class="oscuro ion-margin-top">Almacenar</ion-button>
+
+  
+  
+
+</ion-content>

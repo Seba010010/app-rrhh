@@ -1,0 +1,51 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar class="azul">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button (click)="cambiarContrasena()" class="azul" >
+      <ion-icon name="warning-outline"></ion-icon>
+      Cambiar contraseña
+    </ion-button>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar class="azul">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Bienvenidos</ion-title>
+      <ion-chip slot="end" (click)="presentAlert()" class="azul">Salir</ion-chip >
+
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-img  class ="ion-padding" src="assets/images/welcome.svg"></ion-img>
+    <ion-toolbar>
+      <ion-title>
+        Hola! {{nombreUsuario}} {{apellidoUsuario}}, 
+        acá te dejamos los últimos sismos del pais
+      </ion-title>
+    </ion-toolbar>
+
+
+
+    <ion-card color="primary" *ngFor = "let item of getData">
+      <ion-card-header >
+        <ion-card-subtitle> Fecha: {{item.Fecha}}</ion-card-subtitle>
+        <ion-card-subtitle> Magnitud: {{item.Magnitud}} </ion-card-subtitle>
+        <ion-card-subtitle> Donde: {{item.RefGeografica}} </ion-card-subtitle>
+
+      </ion-card-header>
+    
+      <ion-card-content>
+      
+      </ion-card-content>
+    </ion-card>
+
+  </ion-content>
+</div>

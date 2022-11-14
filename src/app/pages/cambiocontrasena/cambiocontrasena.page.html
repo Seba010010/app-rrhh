@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Cambiar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- imagen -->
+  <ion-img  class ="ion-padding" src="assets/images/restablecer-contrasena.svg"></ion-img>
+
+  <ion-item>
+    <ion-label position="floating">Indique su correo</ion-label>
+    <ion-input [(ngModel)]="mdl_correo"></ion-input>
+
+
+<!--   <ion-label>Readonly textarea</ion-label>
+    <ion-textarea [readonly]="true" placeholder="Can't edit this"></ion-textarea>
+  </ion-item>
+ -->
+    
+</ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Indique contraseña actual</ion-label>
+    <ion-input [(ngModel)]="mdl_contrasenaold"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label position="floating">Indique contraseña nueva</ion-label>
+    <ion-input [(ngModel)]="mdl_contrasenanew"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Repita contraseña nueva</ion-label>
+    <ion-input [(ngModel)]="mdl_contrasena3"></ion-input>
+  </ion-item>
+
+  <ion-button class="azul" expand="block" (click)="actualiza()">
+    Actualizar contraseña
+  </ion-button>
+
+</ion-content>

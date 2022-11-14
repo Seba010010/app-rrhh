@@ -1,0 +1,30 @@
+<!-- <ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>RegistrAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+ -->
+ <app-barra titulo="RegistrAPP"></app-barra>
+<ion-content>
+
+  <!-- imagen -->
+  <ion-img  class ="ion-padding" src="assets/images/login.svg"></ion-img>
+
+  <!-- caja de nombre usuario -->
+  <ion-item class="ion-margin-top">
+    <ion-label position ="floating" >Ingresa correo</ion-label>
+    <ion-input [(ngModel)]= "mdl_correo"></ion-input>
+  </ion-item>
+
+  <!-- caja contraseña -->
+  <ion-item class="ion-margin-top">
+    <ion-label position ="floating" >Contraseña</ion-label>
+    <ion-input type = "password"[(ngModel)]= "mdl_contrasena"></ion-input>
+  </ion-item>
+  
+  <!-- boton entrar con funcion  -->
+  <ion-button (click)="validarCredenciales()" class="ion-margin-top azul" expand="block"> Entrar</ion-button>
+  <ion-button (click)="registroUsuario()" class="ion-margin-top azul" expand="block"> Registrarme</ion-button>
+
+
+</ion-content>
