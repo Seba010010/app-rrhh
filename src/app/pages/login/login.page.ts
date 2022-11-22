@@ -5,6 +5,9 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ApiService, correoLogueado, validado } from 'src/app/services/api.service';
 import { DbService } from 'src/app/services/db.service';
+import{Camera, CameraResultType} from '@capacitor/camera';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+
 
 
 @Component({
@@ -18,10 +21,55 @@ export class LoginPage implements OnInit {
   mdl_contrasena: string = "";
   nombre1: string;
 
+  rutaFoto: string = "";
+  texto: string = '';
+
 
 
   constructor(private router: Router, private alertController: AlertController, private db: DbService, private api: ApiService, private loadingCtrl: LoadingController, private toastController: ToastController /* private sqlite: SQLite */) { 
   }
+
+  async leerQR() {
+    document.querySelector('body').classList.add('scanner-active');
+
+    await BarcodeScanner.checkPermission({ force: true });
+
+    BarcodeScanner.hideBackground();
+  
+    const result = await BarcodeScanner.startScan(); 
+  
+    if (result.hasContent) {
+      this.texto = (result.content);
+    }
+
+    document.querySelector('body').classList.remove('scanner-active');
+
+
+    let that = this;
+    let data = await that.api.almacenarAsistencia(this.mdl_correo, this.texto);
+
+    if(data['result'][0].RESPUESTA == 'OK') {
+      console.log('OK');
+    } else if(data['result'][0].RESPUESTA == 'ERR03') {
+      console.log('Error');
+    } else {
+      console.log("NADA")
+    }
+    debugger;
+
+    
+};
+
+  async tomarFoto(){
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri
+    });
+
+    this.rutaFoto = image.webPath;
+  };
+  
 
   ngOnInit() {
 

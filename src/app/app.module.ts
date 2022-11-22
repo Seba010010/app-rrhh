@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { SQLite} from '@ionic-native/sqlite/ngx';
 
 import {HttpClientModule} from '@angular/common/http';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, /* SQLite */],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy,  }, /* SQLite */],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
