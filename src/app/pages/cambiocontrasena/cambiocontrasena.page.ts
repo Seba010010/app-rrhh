@@ -3,6 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
 import { DbService } from 'src/app/services/db.service';
+//import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
+//import { SQLiteOriginal } from '@ionic-native/sqlite';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+
+
 
 @Component({
   selector: 'app-cambiocontrasena',
@@ -25,7 +30,7 @@ export class CambiocontrasenaPage implements OnInit {
 
 
 
-  constructor(private router: Router, private db: DbService, private api: ApiService, private loadingCtrl: LoadingController, private toastController: ToastController, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private db: DbService, private api: ApiService, private loadingCtrl: LoadingController, private toastController: ToastController, private activatedRoute: ActivatedRoute, private sqlite: SQLite) { }
 
   ngOnInit() {
 

@@ -1,0 +1,43 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar_asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+ -->
+
+
+<ion-content>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar class="azul">
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Registra Asistencia</ion-title>
+        <ion-chip slot="end" (click)="presentAlert()" class="azul">Salir</ion-chip >
+  
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-img  class ="ion-padding" src="assets/images/welcome.svg"></ion-img>
+      <ion-toolbar>
+        <ion-title>
+          Hola! favor presiona el botón para registrar asistencia
+        </ion-title>
+      </ion-toolbar>
+
+      <div>
+        <ion-button (click)= "leerQR()" class="ion-margin-top azul" expand="block"> QR </ion-button>
+<!--         <ion-label class="titulo"> {{ texto }} </ion-label>
+ -->      
+ {{result}}
+ {{resultado}}
+
+      </div>
+      
+
+
+  
+
+</ion-content>

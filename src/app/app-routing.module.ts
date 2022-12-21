@@ -34,6 +34,20 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
+  {
+  path: 'registrar-asistencia',
+  redirectTo: 'registrar-asistencia',
+  pathMatch: 'full'
+},
+
+{
+  path: 'registrar-asistencia2',
+  redirectTo: 'registrar-asistencia2',
+  pathMatch: 'full'
+},
+
+
+
 
 
 
@@ -65,6 +79,14 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'registrar-asistencia',
+    loadChildren: () => import('./pages/registrar-asistencia/registrar-asistencia.module').then( m => m.RegistrarAsistenciaPageModule),canActivate: [ApiService]
+  },
+  {
+    path: 'registrar-asistencia2',
+    loadChildren: () => import('./pages/registrar-asistencia2/registrar-asistencia2.module').then( m => m.RegistrarAsistencia2PageModule)
   },
 ];
 

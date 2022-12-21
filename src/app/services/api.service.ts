@@ -94,8 +94,6 @@ export class ApiService {
   }
 
 
-
-
   listarPersonas(correo){
     let that = this;
 
@@ -110,18 +108,27 @@ export class ApiService {
   }
 
 
-  almacenarAsistencia(CORREO, ID_CLASE){
+  asistenciaAlmacenar(correo, id_clase){
     let that = this;  
 
     return new Promise(resolve => {
       resolve(that.http.post(that.rutaBase, {
         nombreFuncion: 'AsistenciaAlmacenar', 
-        parametros: [CORREO, ID_CLASE]
+        parametros: [correo, id_clase]
       }).toPromise()) 
     })
   }
 
+  eliminarAsistencia() {
+    let that = this;
+    let url = `${that.rutaBase}?nombreFuncion=EliminarAsistencia&correo=${correo}`
+    return new Promise(resolve => {
+      resolve(that.http.get(url).toPromise())
+    })
+  }
 
-
+  obtenerCorreo(){
+    return correo;
+  }
 
 }

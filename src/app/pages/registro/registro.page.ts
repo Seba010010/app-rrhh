@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
 import { DbService } from 'src/app/services/db.service';
+//import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+
 
 @Component({
   selector: 'app-registro',
@@ -17,7 +20,7 @@ export default class RegistroPage implements OnInit {
   mdl_apellido: string = "";
 
 
-  constructor(private router: Router, private alertController: AlertController, private db: DbService, private api: ApiService, private loadingCtrl: LoadingController, private toastController: ToastController) { }
+  constructor(private router: Router, private alertController: AlertController, private db: DbService, private api: ApiService, private loadingCtrl: LoadingController, private toastController: ToastController, private sqlite: SQLite) { }
 
   ngOnInit() {
 

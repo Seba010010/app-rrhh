@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { DbService } from 'src/app/services/db.service';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+//import { SQLiteOriginal } from '@ionic-native/sqlite';
+
+
 
 
 @Component({
@@ -22,9 +26,10 @@ export class PrincipalPage implements OnInit {
   getData:any[]=[];
   handlerMessage = '';
   roleMessage = '';
+  mdl_correo = '';
 
 
-  constructor(private router: Router,  private api: ApiService, private activatedRoute: ActivatedRoute, private loadingCtrl: LoadingController, private alertController: AlertController, private db: DbService) { 
+  constructor(private router: Router,  private api: ApiService, private activatedRoute: ActivatedRoute, private loadingCtrl: LoadingController, private alertController: AlertController, private db: DbService, private sqlite: SQLite) { 
 
     this.api.getData<any[]>("").subscribe(data => {
       this.getData = data
@@ -69,6 +74,15 @@ export class PrincipalPage implements OnInit {
   cambiarContrasena(){
     this.router.navigate(['cambiocontrasena']);
   }
+
+  irRegistrar(){
+    this.router.navigate(['registrar-asistencia'], this.data)
+    console.log(this.data);
+}
+
+
+
+  
 
 
 /*   salir() {
